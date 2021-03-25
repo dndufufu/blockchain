@@ -1,0 +1,13 @@
+syntax = "proto3";
+package dndufufu.blockchain.blockchain;
+
+option go_package = "github.com/dndufufu/blockchain/x/blockchain/types";
+
+import "gogoproto/gogo.proto";
+
+message Cohort {
+  string creator = 1;
+  uint64 id = 2;
+  string name = 3; 
+  string operation = 4; 
+}

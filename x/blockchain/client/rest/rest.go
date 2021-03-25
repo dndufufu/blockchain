@@ -14,12 +14,22 @@ const (
 // RegisterRoutes registers blockchain-related REST handlers to a router
 func RegisterRoutes(clientCtx client.Context, r *mux.Router) {
 	// this line is used by starport scaffolding # 2
+	registerQueryRoutes(clientCtx, r)
+	registerTxHandlers(clientCtx, r)
+
 }
 
 func registerQueryRoutes(clientCtx client.Context, r *mux.Router) {
 	// this line is used by starport scaffolding # 3
+	r.HandleFunc("/blockchain/cohorts/{id}", getCohortHandler(clientCtx)).Methods("GET")
+	r.HandleFunc("/blockchain/cohorts", listCohortHandler(clientCtx)).Methods("GET")
+
 }
 
 func registerTxHandlers(clientCtx client.Context, r *mux.Router) {
 	// this line is used by starport scaffolding # 4
+	r.HandleFunc("/blockchain/cohorts", createCohortHandler(clientCtx)).Methods("POST")
+	r.HandleFunc("/blockchain/cohorts/{id}", updateCohortHandler(clientCtx)).Methods("POST")
+	r.HandleFunc("/blockchain/cohorts/{id}", deleteCohortHandler(clientCtx)).Methods("POST")
+
 }

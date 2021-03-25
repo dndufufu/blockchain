@@ -4,12 +4,36 @@ package dndufufu.blockchain.blockchain;
 import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 // this line is used by starport scaffolding # 1
+import "blockchain/cohort.proto";
 
 option go_package = "github.com/dndufufu/blockchain/x/blockchain/types";
 
 // Query defines the gRPC querier service.
 service Query {
     // this line is used by starport scaffolding # 2
+	rpc Cohort(QueryGetCohortRequest) returns (QueryGetCohortResponse) {
+		option (google.api.http).get = "/dndufufu/blockchain/blockchain/cohort/{id}";
+	}
+	rpc CohortAll(QueryAllCohortRequest) returns (QueryAllCohortResponse) {
+		option (google.api.http).get = "/dndufufu/blockchain/blockchain/cohort";
+	}
+
 }
 
 // this line is used by starport scaffolding # 3
+message QueryGetCohortRequest {
+	uint64 id = 1;
+}
+
+message QueryGetCohortResponse {
+	Cohort Cohort = 1;
+}
+
+message QueryAllCohortRequest {
+	cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllCohortResponse {
+	repeated Cohort Cohort = 1;
+	cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}

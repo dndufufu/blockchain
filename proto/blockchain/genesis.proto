@@ -2,11 +2,13 @@ syntax = "proto3";
 package dndufufu.blockchain.blockchain;
 
 // this line is used by starport scaffolding # genesis/proto/import
+import "blockchain/cohort.proto";
 
 option go_package = "github.com/dndufufu/blockchain/x/blockchain/types";
 
 // GenesisState defines the capability module's genesis state.
 message GenesisState {
     // this line is used by starport scaffolding # genesis/proto/state
+		repeated Cohort cohortList = 1; // this line is used by starport scaffolding # genesis/proto/stateField
 }
 
