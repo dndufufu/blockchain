@@ -107,3 +107,6 @@ func CmdShowCohortById() *cobra.Command {
 
 	return cmd
 }
+// git rebase test1
+// git rebase test2
+// git rebase test3
