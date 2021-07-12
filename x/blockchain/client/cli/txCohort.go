@@ -10,6 +10,7 @@ import (
 	"github.com/dndufufu/blockchain/x/blockchain/types"
 )
 
+// add comment
 func CmdCreateCohort() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "create-cohort [name] [operation]",
@@ -37,6 +38,7 @@ func CmdCreateCohort() *cobra.Command {
 	return cmd
 }
 
+// add comment 2
 func CmdUpdateCohort() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "update-cohort [id] [name] [operation]",
